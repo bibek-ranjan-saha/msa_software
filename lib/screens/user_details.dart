@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:msa_software/models/users_model.dart';
+import 'package:msa_software/utils/app_utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UserDetails extends StatelessWidget {
@@ -107,12 +108,18 @@ class UserDetails extends StatelessWidget {
               children: [
                 ElevatedButton.icon(
                   icon: const Icon(Icons.phone),
-                  onPressed: () {
-                    launchUrl(Uri.parse("tel://${user.phone}"));
+                  onPressed: () async {
+                    Uri uri = Uri.parse("tel://${user.phone}");
+                    if (await canLaunchUrl(uri)) {
+                      launchUrl(uri);
+                    } else {
+                      if (context.mounted) {
+                        showSnackBar(
+                            context: context, text: "unable to open phone app");
+                      }
+                    }
                   },
-                  label: const Text(
-                    "phone no : "
-                  ),
+                  label: const Text("phone no : "),
                 ),
                 const SizedBox(
                   width: 12,
@@ -132,19 +139,24 @@ class UserDetails extends StatelessWidget {
               children: [
                 ElevatedButton.icon(
                   icon: const Icon(Icons.alternate_email_rounded),
-                  onPressed: () {
-                    launchUrl(Uri.parse
-                      ("mailto:${user
-                        .email}?subject=Greetings&body=Hi%20${user.name},"
-                        "\nHappy%20New%20Year"
-                        "\n\nCreated%20and%20shared%20from%20sample%20task"
-                        "%20byMSA-Software\n"
-                        "\nThanks%20and%20regards,"
-                        "\nBibek%20ranjan%20saha"));
+                  onPressed: () async {
+                    Uri uri = Uri.parse(
+                        "mailto:${user.email}?subject=Greetings&body=Hi%20${user.name},"
+                            "\nHappy%20New%20Year"
+                            "\n\nCreated%20and%20shared%20from%20sample%20task"
+                            "%20byMSA-Software\n"
+                            "\nThanks%20and%20regards,"
+                            "\nBibek%20ranjan%20saha");
+                    if (await canLaunchUrl(uri)) {
+                      launchUrl(uri);
+                    } else {
+                      if (context.mounted) {
+                        showSnackBar(
+                            context: context, text: "unable to open mail");
+                      }
+                    }
                   },
-                  label:const  Text(
-                    "email : "
-                  ),
+                  label: const Text("email : "),
                 ),
                 const SizedBox(
                   width: 12,
@@ -164,12 +176,18 @@ class UserDetails extends StatelessWidget {
               children: [
                 ElevatedButton.icon(
                   icon: const Icon(Icons.web_rounded),
-                  onPressed: () {
-                    launchUrl(Uri.parse("${user.website}"));
+                  onPressed: () async {
+                    Uri uri = Uri.http("${user.website}");
+                    if (await canLaunchUrl(uri)) {
+                      launchUrl(uri);
+                    } else {
+                      if (context.mounted) {
+                        showSnackBar(
+                            context: context, text: "unable to open url");
+                      }
+                    }
                   },
-                  label: const Text(
-                    "website : "
-                  ),
+                  label: const Text("website : "),
                 ),
                 const SizedBox(
                   width: 12,
@@ -191,10 +209,19 @@ class UserDetails extends StatelessWidget {
                 ElevatedButton.icon(
                   icon: const Icon(Icons.location_on_rounded),
                   label: const Text("view on map"),
-                  onPressed: () {
+                  onPressed: () async {
                     String googleUrl = 'https://www.google'
-                    '.com/maps/search/?api=1&query=${user.address?.geo?.lat},${user.address?.geo?.lat}';
-                    launchUrl(Uri.parse(googleUrl));
+                        '.com/maps/search/?api=1&query=${user.address?.geo?.lat},${user.address?.geo?.lat}';
+                    Uri uri = Uri.parse(googleUrl);
+                    if (await canLaunchUrl(uri)) {
+                      launchUrl(uri);
+                    } else {
+                      if (context.mounted) {
+                        showSnackBar(
+                            context: context, text: "unable to open google "
+                            "maps");
+                      }
+                    }
                   },
                 ),
                 const SizedBox(
