@@ -110,9 +110,8 @@ class UserDetails extends StatelessWidget {
                   onPressed: () {
                     launchUrl(Uri.parse("tel://${user.phone}"));
                   },
-                  label: Text(
-                    "phone no : ",
-                    style: Theme.of(context).textTheme.titleLarge,
+                  label: const Text(
+                    "phone no : "
                   ),
                 ),
                 const SizedBox(
@@ -143,9 +142,8 @@ class UserDetails extends StatelessWidget {
                         "\nThanks%20and%20regards,"
                         "\nBibek%20ranjan%20saha"));
                   },
-                  label: Text(
-                    "email : ",
-                    style: Theme.of(context).textTheme.titleLarge,
+                  label:const  Text(
+                    "email : "
                   ),
                 ),
                 const SizedBox(
@@ -169,9 +167,8 @@ class UserDetails extends StatelessWidget {
                   onPressed: () {
                     launchUrl(Uri.parse("${user.website}"));
                   },
-                  label: Text(
-                    "website : ",
-                    style: Theme.of(context).textTheme.titleLarge,
+                  label: const Text(
+                    "website : "
                   ),
                 ),
                 const SizedBox(

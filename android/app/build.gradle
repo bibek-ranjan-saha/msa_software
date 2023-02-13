@@ -60,6 +60,24 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+    flavorDimensions "default"
+    productFlavors {
+        production {
+            dimension "default"
+            resValue "string", "app_name", "MSA Software JSONPlaceholder TEST"
+            applicationIdSuffix ""
+        }
+        staging {
+            dimension "default"
+            resValue "string", "app_name", "Staging MSA Software JSONPlaceholder TEST"
+            applicationIdSuffix ".staging"
+        }
+        development {
+            dimension "default"
+            resValue "string", "app_name", "Dev MSA Software JSONPlaceholder TEST"
+            applicationIdSuffix ".dev"
+        }
+    }
 }
 
 flutter {

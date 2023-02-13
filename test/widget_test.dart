@@ -7,13 +7,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:msa_software/flavours/common.dart';
 
 import 'package:msa_software/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('JSONPlaceholder MSA Software test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(const MyApp(suffix : "test"));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
