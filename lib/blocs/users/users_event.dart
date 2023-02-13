@@ -8,3 +8,5 @@ abstract class UsersEvent extends Equatable{
 }
 
 class GetUsersList extends UsersEvent{}
+
+class UpdateUsersList extends UsersEvent {}

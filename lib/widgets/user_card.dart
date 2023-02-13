@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:msa_software/models/users_model.dart';
@@ -10,14 +11,15 @@ class UserCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4.0),
-      child: Card(
-        clipBehavior: Clip.hardEdge,
-        child: InkWell(
-          onTap: () {
-            context.push(UserDetails.routeName,extra: user);
-          },
+    return OpenContainer(
+      tappable: true,
+      middleColor: Colors.transparent,
+      closedColor: Colors.transparent,
+      openColor: Colors.transparent,
+      closedBuilder: (ctx,fun) => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 4.0),
+        child: Card(
+          clipBehavior: Clip.hardEdge,
           child: Padding(
             padding: const EdgeInsets.all(12.0),
             child: Column(
@@ -81,6 +83,7 @@ class UserCard extends StatelessWidget {
           ),
         ),
       ),
+      openBuilder: (ctx,fun) => UserDetails(user),
     );
   }
 }

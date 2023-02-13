@@ -13,7 +13,7 @@ class UserDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("about user ${user.username ?? ""}"),
+        title: Text("about ${user.username ?? "User"}"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -23,12 +23,12 @@ class UserDetails extends StatelessWidget {
               children: [
                 Text(
                   "Full Name :  ",
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
                 Expanded(
                   child: Text(
                     user.name ?? "",
-                    style: Theme.of(context).textTheme.titleSmall,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
               ],
@@ -40,12 +40,12 @@ class UserDetails extends StatelessWidget {
               children: [
                 Text(
                   "user-name :  ",
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
                 Expanded(
                   child: Text(
                     user.username ?? "",
-                    style: Theme.of(context).textTheme.titleSmall,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
               ],
@@ -57,12 +57,12 @@ class UserDetails extends StatelessWidget {
               children: [
                 Text(
                   "company name :  ",
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
                 Expanded(
                   child: Text(
                     user.company?.name ?? "",
-                    style: Theme.of(context).textTheme.titleSmall,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
               ],
@@ -74,12 +74,12 @@ class UserDetails extends StatelessWidget {
               children: [
                 Text(
                   "company bs :  ",
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
                 Expanded(
                   child: Text(
                     user.company?.bs ?? "",
-                    style: Theme.of(context).textTheme.titleSmall,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
               ],
@@ -91,12 +91,12 @@ class UserDetails extends StatelessWidget {
               children: [
                 Text(
                   "company catch phrase :  ",
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
                 Expanded(
                   child: Text(
                     user.company?.catchPhrase ?? "",
-                    style: Theme.of(context).textTheme.titleSmall,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
               ],
@@ -119,7 +119,7 @@ class UserDetails extends StatelessWidget {
                       }
                     }
                   },
-                  label: const Text("phone no : "),
+                  label: const Text("phone no"),
                 ),
                 const SizedBox(
                   width: 12,
@@ -127,7 +127,7 @@ class UserDetails extends StatelessWidget {
                 Expanded(
                   child: Text(
                     user.phone ?? "",
-                    style: Theme.of(context).textTheme.titleSmall,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
               ],
@@ -156,7 +156,7 @@ class UserDetails extends StatelessWidget {
                       }
                     }
                   },
-                  label: const Text("email : "),
+                  label: const Text("email"),
                 ),
                 const SizedBox(
                   width: 12,
@@ -164,7 +164,7 @@ class UserDetails extends StatelessWidget {
                 Expanded(
                   child: Text(
                     user.email ?? "",
-                    style: Theme.of(context).textTheme.titleSmall,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
               ],
@@ -187,7 +187,7 @@ class UserDetails extends StatelessWidget {
                       }
                     }
                   },
-                  label: const Text("website : "),
+                  label: const Text("website"),
                 ),
                 const SizedBox(
                   width: 12,
@@ -195,7 +195,7 @@ class UserDetails extends StatelessWidget {
                 Expanded(
                   child: Text(
                     user.website ?? "",
-                    style: Theme.of(context).textTheme.titleSmall,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
               ],
@@ -230,7 +230,7 @@ class UserDetails extends StatelessWidget {
                 Expanded(
                   child: Text(
                     "City : ${user.address?.city}\nStreet : ${user.address?.street}\nSuite : ${user.address?.suite}\nZip : ${user.address?.zipcode} ",
-                    style: Theme.of(context).textTheme.titleSmall,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
               ],

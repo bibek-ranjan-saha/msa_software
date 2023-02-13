@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeCubit theme = BlocProvider.of<ThemeCubit>(context, listen: true);
     return MaterialApp.router(
-      key: snackBarKey,
+      scaffoldMessengerKey: snackBarKey,
       themeMode: theme.isDark ? ThemeMode.dark : ThemeMode.light,
       debugShowCheckedModeBanner: false,
       title: 'MSA Software test by bibek $suffix',
